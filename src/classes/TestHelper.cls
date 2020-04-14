@@ -25,6 +25,7 @@ public class TestHelper {
 
         String expectedMessage = String.format(ArgumentNullException.NULL_ARGUMENT_ERROR, new List<String> { param });
         if (e.getMessage() != expectedMessage) {
+           
             System.assert(false, 'Expected Message: ' + expectedMessage + ' :: Returned Message: ' + e.getMessage());
         }
     }
