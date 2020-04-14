@@ -18,11 +18,12 @@ public with sharing class PubSubService {
 
         private set;
     }
-
+  
     /**
      * @description Subscribes a given IHandleMessages implementation to the channels it returns.
      * @param implementation An instance of IHandleMessages.
      * @throws ArgumentNullException if implementation is null.
+     
      */
     public void subscribe(IHandleMessages implementation) {
 
