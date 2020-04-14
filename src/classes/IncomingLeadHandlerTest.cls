@@ -4,6 +4,7 @@ private class IncomingLeadHandlerTest {
         return [SELECT Id, FirstName, LastName, Company, Email FROM Lead];
     }
 
+    
     @isTest
     private static void handleMessage_nullChannel_expectArgumentNullException() {
         IncomingLeadHandler testHandler = new IncomingLeadHandler();
