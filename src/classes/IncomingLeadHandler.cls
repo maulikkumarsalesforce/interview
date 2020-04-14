@@ -1,3 +1,6 @@
+
+
+
 /**
  * @description An implementation of IHandleMessages which validates the passed in Lead and inserts it.
  */
@@ -17,6 +20,33 @@ public with sharing class IncomingLeadHandler implements IHandleMessages {
      * @throws ArgumentException if the lead is missing a FirstName.
      */
     public void handleMessage(String channel, Object data) {
+	try
+	{
+	  if(channel == null)
+	  {
+	  throw new ArgumentNullException('Channel  is missing');
+	  }
+	  
+	  if(data != null)
+	  {
+		if(data.FirstName != null)
+		{
+		  Lead obj = new Lead();
+		  obj.FristName = string data.FirstName;
+		  obj.LastName =  string data.LastName;
+		  obj.Company = string data.Company;
+		  obj.Email  = string data.Email;
+		  insert obj;
+		}
+	  }
+	  else
+		{
+		throw new ArgumentNullException('lead is missing a FirstName');
+		} 
+    }
+	 catch(DmlException e) {
+    System.debug('DmlException caught: ' + e.getMessage());    
+	} 
 
     }
 
